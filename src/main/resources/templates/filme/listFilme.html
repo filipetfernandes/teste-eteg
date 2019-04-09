@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+	<title>Lista de Filmes</title>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <link type="text/css" rel="stylesheet" href="/materialize/css/materialize.min.css"  media="screen,projection"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+	<nav>
+		<div class="nav-wrapper teal">
+			<ul id="nav-mobile" class="left hide-on-med-and-down">
+				<li><a th:href="@{/}"><i class="material-icons left">home</i>Tela Inicial</a></li>
+				<li class="active"><a th:href="@{/filme/listar}"><i class="material-icons left">local_movies</i>CRUD Filme</a></li>
+				<li><a th:href="@{/usuario/listar}"><i class="material-icons left">people</i>CRUD Usuário</a></li>
+				<li><a th:href="@{/locacao/cadastrar}"><i class="material-icons left">monetization_on</i>Alugar Filme</a></li>
+				<li><a th:href="@{/locacao/renovar}"><i class="material-icons left">autorenew</i>Renovar Locação</a></li>
+				<li><a th:href="@{/locacao/listar}"><i class="material-icons left">info</i>Histórico Locação</a></li>
+			</ul>
+		</div>
+	</nav>
+	<br/>
+	<div class="container">
+		<div class="row">
+			<div class="col s3">
+				<a th:href="@{/filme/cadastrar}" class="btn"><i class="material-icons left">add_circle</i>Novo Filme</a>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col s12">
+				<table class="striped">
+					<thead>
+						<tr style="background-color: rgb(38, 166, 154, 0.35)">
+							<td style="text-align: center; font-weight: bold;">Nome</td>
+							<td style="text-align: center; font-weight: bold;">Genero</td>
+							<td style="text-align: center; font-weight: bold;">Diretor</td>
+							<td style="text-align: center; font-weight: bold;">Quantidade Total</td>
+							<td style="text-align: center; font-weight: bold;">Editar</td>
+							<td style="text-align: center; font-weight: bold;">Excluir</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="filme : ${listaFilmes}">
+							<td><span th:text="${filme.nome}"></span></td>
+							<td><span th:text="${filme.genero}"></span></td>
+							<td><span th:text="${filme.diretor}"></span></td>
+							<td style="text-align: right;"><span th:text="${filme.quantidade}"></span></td>
+							<td style="text-align: center;"><a class="waves-effect waves-light btn" th:href="@{/filme/editar/{id}(id=${filme.id})}">Editar</a></td>
+							<td style="text-align: center;"><a class="waves-effect waves-light btn" th:href="@{/filme/excluir/{id}(id=${filme.id})}">Excluir</a></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+<script type="text/javascript" src="/materialize/js/materialize.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+<nav>
+	<div class="nav-wrapper teal">
+		<ul id="nav-mobile" class="left hide-on-med-and-down">
+			<li class="active"><a th:href="@{/}"><i class="material-icons left">home</i>Tela Inicial</a></li>
+			<li><a th:href="@{/filme/listar}"><i class="material-icons left">local_movies</i>CRUD Filme</a></li>
+			<li><a th:href="@{/usuario/listar}"><i class="material-icons left">people</i>CRUD Usuário</a></li>
+			<li><a th:href="@{/locacao/cadastrar}"><i class="material-icons left">monetization_on</i>Alugar Filme</a></li>
+			<li><a th:href="@{/locacao/renovar}"><i class="material-icons left">autorenew</i>Renovar Locação</a></li>
+			<li><a th:href="@{/locacao/listar}"><i class="material-icons left">info</i>Histórico Locação</a></li>
+		</ul>
+	</div>
+</nav>
+
+<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+</body>
+</html>

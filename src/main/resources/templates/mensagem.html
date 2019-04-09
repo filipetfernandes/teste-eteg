@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	  xmlns:th="http://thymeleaf.org">
+<head>
+	<style type="text/css">
+		.msg {
+		  width:100%;
+		  border: 1px solid;
+		  padding:10px;
+		  color: grey;
+		}
+		.msg-error {
+		  border-color: #d32f2f;
+		  background-color: #ef5350;
+		  color: white;
+		}
+		.msg-info{
+		  border-color: #00e676;
+		  background-color: #00e676;
+		  color: white;
+		}
+	</style>
+</head>
+<body>	
+	<div class="msg msg-info alert alert-success alert-dismissible" role="alert" th:if="${not #strings.isEmpty(mensagem) and sucesso}">
+		<span th:text="${mensagem}"></span>
+	</div>
+	<div class="msg msg-error alert alert-success alert-dismissible" role="alert" th:if="${not #strings.isEmpty(mensagem) and not sucesso}">
+		<span th:text="${mensagem}"></span>
+	</div>
+</body>						
+</html>
